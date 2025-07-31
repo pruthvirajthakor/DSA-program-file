@@ -1,0 +1,100 @@
+// Write a program to implement the Simple Queue using array and class.
+
+class queue {
+    int q[10], f, r, n;
+
+public:
+    queue() {
+        f = -1;
+        r = -1;
+        n = 10;
+    }
+
+    void insert(int data) {
+        if (r == n - 1) {
+            cout << "\n\tQueue is Overflow";
+            return;
+        }
+
+        r++;
+        q[r] = data;
+
+        if (f == -1)
+            f = 0;
+    }
+
+    int del() {
+        int data;
+
+        if (f == -1 || f > r) {
+            cout << "\n\tQueue is Underflow";
+            return 0;
+        }
+
+        data = q[f];
+
+        if (f == r) {
+            f = -1;
+            r = -1;
+        } else {
+            f++;
+        }
+
+        return data;
+    }
+
+    void display() {
+        if (f == -1) {
+            cout << "\n\tQueue is Empty";
+        } else {
+            cout << "\nThe Queue is:\n";
+            for (int i = f; i <= r; i++) {
+                cout << q[i] << "\t";
+            }
+        }
+    }
+};
+
+void main() {
+    
+
+    int e, ch;
+    queue q;
+
+    do {
+        cout << "\n\t\tQueue Implementation";
+        cout << "\n\t1: Insert";
+        cout << "\n\t2: Delete";
+        cout << "\n\t3: Display";
+        cout << "\n\t4: Exit";
+        cout << "\n\tEnter your choice: ";
+        cin >> ch;
+
+        switch (ch) {
+            case 1:
+                cout << "\n\tEnter the element: ";
+                cin >> e;
+                q.insert(e);
+                break;
+
+            case 2:
+                e = q.del();
+                if (e != 0)
+                    cout << "\n\tThe deleted element is: " << e;
+                break;
+
+            case 3:
+                q.display();
+                break;
+
+            case 4:
+                cout << "\nBye Bye!";
+                exit(0);
+                break;
+
+            default:
+                cout << "\nWrong choice!";
+        }
+
+    } while (ch != 4);
+}
