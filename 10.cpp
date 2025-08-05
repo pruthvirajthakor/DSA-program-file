@@ -103,7 +103,7 @@ public:
 };
 
 void main() {
-    clrscr();
+   
 
     int ch, e;
     dqueue dq;
@@ -159,3 +159,4 @@ void main() {
       
     } while (ch != 6);
 }
+
