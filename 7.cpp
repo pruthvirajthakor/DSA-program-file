@@ -3,9 +3,9 @@
 class toh {
     int n;
     char a, b, c;
-
 public:
-    toh() { }
+    toh() {
+    }
 
     toh(int no, char t1, char t3, char t2) {
         n = no;
@@ -14,32 +14,27 @@ public:
         c = t3;
     }
 
-    void tower(int n, char a, char b, char c) {
+    void tower(int n, char a, char c, char b) {
         if (n == 1) {
-            cout << "\nMove disk 1 from peg " << a << " to " << c;
+            cout << "\n Disk 1 moved from Tower " << a << " to Tower " << c;
             return;
         }
-
-        tower(n - 1, a, c, b);
-        cout << "\nMove disk " << n << " from peg " << a << " to " << c;
-        tower(n - 1, b, a, c);
+        tower(n - 1, a, b, c);
+        cout << "\n Disk " << n << " moved from Tower " << a << " to Tower " << c;
+        tower(n - 1, b, c, a);
     }
 
-    void tower() {
-        tower(n, a, b, c);
+    void start() {
+	tower(n, a, c, b);
     }
 };
 
-void main() {
-    clrscr();
-
+int main() {
     int n;
-    cout << "\t\t\tTOWER OF HANOI\n\n";
-    cout << "Enter the value of n: ";
+    clrscr();
+    cout << "\t\t\t TOWER OF HANOI \n\n";
+    cout << "Enter the value of n : ";
     cin >> n;
-
     toh t(n, 'A', 'C', 'B');
-    t.tower();
-
-    
+    t.start(); // Call the correct function
 }
