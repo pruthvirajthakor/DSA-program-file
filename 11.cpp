@@ -1,3 +1,11 @@
+/*Write a program to implement a singly linked list in C++.
+Perform the following operations:
+
+    1.Create a linked list
+    2.Insert elements
+    3.Delete node from beginning
+    4.Display the list
+*/
 struct Node {
     int data;
     Node *next;
@@ -85,4 +93,5 @@ void main() {
     }
 
     
+
 }
