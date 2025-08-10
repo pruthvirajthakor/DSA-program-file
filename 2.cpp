@@ -1,14 +1,18 @@
 // Write a program to calculate factorial of a given number using recursion function.
 
-int fecto(int n) {
-    if (n == 0 || n == 1)
+long factorial(int n)
+{
+    if (n <= 1)   // Base case
         return 1;
     else
-        return n * fecto(n - 1);
+        return n * factorial(n - 1);  
 }
 
-void main() {
+void main()
+{
+   
     int num;
+    long fact;
 
     cout << "Enter a number: ";
     cin >> num;
@@ -16,6 +20,10 @@ void main() {
     if (num < 0)
         cout << "Factorial is not defined for negative numbers.";
     else
-        cout << "Factorial of " << num << " is: " << fecto(num);
+    {
+        fact = factorial(num);
+        cout << "Factorial of " << num << " is: " << fact;
+    }
 
+   
 }
